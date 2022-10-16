@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "AccessDanied";
+}
+
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+</div>
+
+<div class="row">
+    <div class="col">
+        <h1 class="text-center text-danger"><i class="fa-solid fa-ban fa-3x"></i></h1>
+        <p class="text-center">You can not access the page!</p>
+        <div class="text-center">
+            <a class="btn btn-primary" asp-action="Index" asp-controller="Home">Go to Home!</a>
+        </div>
+    </div>
+</div>
+
