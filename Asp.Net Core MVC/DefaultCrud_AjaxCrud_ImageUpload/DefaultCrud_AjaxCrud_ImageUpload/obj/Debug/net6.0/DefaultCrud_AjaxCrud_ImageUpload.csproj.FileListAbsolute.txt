@@ -378,3 +378,5 @@ C:\Users\USER\Desktop\Practices\Asp.Net Core MVC\DefaultCrud_AjaxCrud_ImageUploa
 C:\Users\USER\Desktop\Practices\Asp.Net Core MVC\DefaultCrud_AjaxCrud_ImageUpload\DefaultCrud_AjaxCrud_ImageUpload\obj\Debug\net6.0\DefaultCrud_AjaxCrud_ImageUpload.pdb
 C:\Users\USER\Desktop\Practices\Asp.Net Core MVC\DefaultCrud_AjaxCrud_ImageUpload\DefaultCrud_AjaxCrud_ImageUpload\obj\Debug\net6.0\DefaultCrud_AjaxCrud_ImageUpload.genruntimeconfig.cache
 C:\Users\USER\Desktop\Practices\Asp.Net Core MVC\DefaultCrud_AjaxCrud_ImageUpload\DefaultCrud_AjaxCrud_ImageUpload\obj\Debug\net6.0\ref\DefaultCrud_AjaxCrud_ImageUpload.dll
+C:\Users\USER\Desktop\Practices\Asp.Net Core MVC\DefaultCrud_AjaxCrud_ImageUpload\DefaultCrud_AjaxCrud_ImageUpload\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\USER\Desktop\Practices\Asp.Net Core MVC\DefaultCrud_AjaxCrud_ImageUpload\DefaultCrud_AjaxCrud_ImageUpload\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

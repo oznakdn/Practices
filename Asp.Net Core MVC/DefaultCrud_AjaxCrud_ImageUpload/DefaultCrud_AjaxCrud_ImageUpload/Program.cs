@@ -2,6 +2,7 @@ using DefaultCrud_AjaxCrud_ImageUpload.Data;
 using DefaultCrud_AjaxCrud_ImageUpload.PasswordSaltHash;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 namespace DefaultCrud_AjaxCrud_ImageUpload
 {
@@ -33,6 +34,8 @@ namespace DefaultCrud_AjaxCrud_ImageUpload
                    opts.LogoutPath = "/Account/Logout";
                    opts.AccessDeniedPath = "/Home/AccessDenied";
                });
+
+            builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
 
             var app = builder.Build();

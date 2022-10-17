@@ -9,6 +9,7 @@ namespace DefaultCrud_AjaxCrud_ImageUpload.Entities
             this.Locked = false;
             this.CreatedDate = DateTime.Now;
             this.Role = "User";
+            this.ImageFileName = "Noimage.jpg";
         }
 
         public Guid Id { get; set; }
@@ -33,8 +34,13 @@ namespace DefaultCrud_AjaxCrud_ImageUpload.Entities
         public bool Locked { get; set; }
         public DateTime CreatedDate { get; set; }
 
+        [StringLength(255)]
+        public string? ImageFileName { get; set; }
+
         [Required]
         [StringLength(50)]
         public string Role { get; set; }
+
+      
     }
 }

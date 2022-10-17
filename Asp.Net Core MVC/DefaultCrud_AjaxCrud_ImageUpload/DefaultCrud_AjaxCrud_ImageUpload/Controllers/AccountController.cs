@@ -7,9 +7,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.ComponentModel.DataAnnotations;
-using System.Net;
 using System.Security.Claims;
 
 namespace DefaultCrud_AjaxCrud_ImageUpload.Controllers
@@ -28,13 +26,17 @@ namespace DefaultCrud_AjaxCrud_ImageUpload.Controllers
             this.passwordGenerator = passwordGenerator;
         }
 
+
+        #region Login
+
+        // GET
         [AllowAnonymous]
         public IActionResult Login()
         {
             return View();
         }
 
-
+        // POST
         [AllowAnonymous]
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel model)
@@ -52,7 +54,7 @@ namespace DefaultCrud_AjaxCrud_ImageUpload.Controllers
                         return View(model);
                     }
 
-                    // Cookie icin
+                    // Cookie eklemek icin
                     List<Claim> claims = new List<Claim>();
 
                     claims.Add(new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()));
@@ -78,30 +80,37 @@ namespace DefaultCrud_AjaxCrud_ImageUpload.Controllers
             return View(model);
         }
 
+
+
+        #endregion
+
+        #region Register
+
+        // GET
+
         [AllowAnonymous]
         public IActionResult Register()
         {
             return View();
         }
 
+        // POST
 
         [AllowAnonymous]
         [HttpPost]
         public IActionResult Register(RegisterViewModel model)
         {
             int isSaved = 0;
-            //string md5Salt = configuration.GetValue<string>("SaltSetting:MD5Salt");
-            //string saltedPassword = $"{model.Password}{md5Salt}";
-            //string hashedPassword = saltedPassword.MD5();
-
             if (ModelState.IsValid)
             {
+                // Kullanici var mi? Kontrol eder.
                 if (context.Users.Any(x => x.Username.ToLower() == model.Username.ToLower()))
                 {
                     ModelState.AddModelError(nameof(model.Username), "Username is already exists!");
                     return View(model);
                 }
 
+                // Kullanici mevcut degil ise yeni kullanici ekler.
                 context.Users.Add(new User
                 {
                     Firstname = model.Firstname,
@@ -114,6 +123,7 @@ namespace DefaultCrud_AjaxCrud_ImageUpload.Controllers
                 return RedirectToAction(nameof(Login));
             }
 
+            // Kayit basarisiz olursa
             if (isSaved == 0)
             {
                 ModelState.AddModelError("Hata", "User could not added!");
@@ -122,31 +132,57 @@ namespace DefaultCrud_AjaxCrud_ImageUpload.Controllers
 
         }
 
+        #endregion
+
+        #region Logout
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction(nameof(Login));
         }
 
+        #endregion
+
+        #region Profile
+
         public IActionResult Profile()
         {
+
+            // User Id bulmak
             Guid userId = new Guid(User.FindFirstValue(ClaimTypes.NameIdentifier));
+
+            // User Id den kullaniciyi bulmak
             User user = context.Users.Single(u => u.Id == userId);
 
+            // User Firstname ve Lastname bilgilerini ilgili Input'larda gostermek
+            ViewData["profileImage"] = user.ImageFileName;
             ViewData["Firstname"] = user.Firstname;
             ViewData["Lastname"] = user.Lastname;
 
             return View();
         }
 
+
+
+        #endregion
+
+        #region Change Profile Informations
+
+        #region Change Name-Surname
         [HttpPost]
         public IActionResult ProfileChangeNameSurname([Required][StringLength(30)] string? firstname, [Required][StringLength(30)] string? lastname)
         {
             if (ModelState.IsValid)
             {
+                // User Id bulmak
                 Guid userId = new Guid(User.FindFirstValue(ClaimTypes.NameIdentifier));
-                User user = context.Users.Single(u => u.Id == userId);
 
+                // User Id den kullaniciyi bulmak
+                User user = context.Users.SingleOrDefault(u => u.Id == userId);
+
+
+                // User Firstname ve Lastname guncellemek ve kaydetmek
+                ViewData["profileImage"] = user.ImageFileName;
                 user.Firstname = firstname;
                 user.Lastname = lastname;
                 context.SaveChanges();
@@ -156,22 +192,104 @@ namespace DefaultCrud_AjaxCrud_ImageUpload.Controllers
 
             return View("Profile");
         }
+        #endregion
+
+        #region Change Password
 
         [HttpPost]
         public IActionResult ProfileChangePassword([Required][MinLength(6)][MaxLength(16)] string? password)
         {
             if (ModelState.IsValid)
             {
+                // User Id bulmak
                 Guid userId = new Guid(User.FindFirstValue(ClaimTypes.NameIdentifier));
-                User user = context.Users.Single(u => u.Id == userId);
+
+                // User Id den kullaniciyi bulmak
+                User user = context.Users.SingleOrDefault(u => u.Id == userId);
+
+                // User password guncellemek ve kaydetmek
                 user.Password = passwordGenerator.PasswordSaltAndHash(password);
                 context.SaveChanges();
+
+                ViewData["profileImage"] = user.ImageFileName;
                 ViewData["result"] = "PasswordChanged";
                 return RedirectToAction(nameof(Profile));
             }
 
             return View("Profile");
         }
+
+        #endregion
+
+        #region Change EmailAddress
+
+        [HttpPost]
+        public IActionResult ProfileChangeEmailAddress([Required][DataType(DataType.EmailAddress)] string? emailAddress)
+        {
+            if (ModelState.IsValid)
+            {
+                // User Id bulmak
+                Guid userId = new Guid(User.FindFirstValue(ClaimTypes.NameIdentifier));
+
+                // User Id den kullaniciyi bulmak
+                User user = context.Users.SingleOrDefault(u => u.Id == userId);
+
+                // User password guncellemek ve kaydetmek
+                user.EmailAddress = emailAddress;
+                context.SaveChanges();
+
+                ViewData["profileImage"] = user.ImageFileName;
+                ViewData["emailAddress"] = user.EmailAddress;
+                return RedirectToAction(nameof(Profile));
+            }
+
+            return View("Profile");
+        }
+        #endregion
+
+        #region Change Image
+
+        [HttpPost]
+        public IActionResult ProfileChangeImage([Required] IFormFile imageFile)
+        {
+            if (ModelState.IsValid)
+            {
+                Guid userId = new Guid(User.FindFirstValue(ClaimTypes.NameIdentifier));
+                User user = context.Users.Single(u => u.Id == userId);
+
+                // Resim kaydetme stili
+                string fileName = $"p-{userId}.jpg";
+
+                // Resim kaydetme
+                using Stream stream = new FileStream($"wwwroot/uploads/{fileName}", FileMode.OpenOrCreate);
+                imageFile.CopyTo(stream);
+                stream.Close();
+
+                // Veritabanina eklemek
+                user.ImageFileName = fileName;
+                context.SaveChanges();
+
+                return RedirectToAction(nameof(Profile));
+            }
+
+            return View("Profile");
+        }
+
+        #endregion
+
+        #endregion
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     }

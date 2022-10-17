@@ -1,0 +1,63 @@
+﻿@model List<DefaultCrud_AjaxCrud_ImageUpload.Models.UserViewModels.UserListViewModel>
+
+@{
+    ViewData["Title"] = "Users";
+}
+
+<div class="row mb-3 mt-4">
+    <div class="col">
+        <a class="btn btn-primary btn-sm" asp-action="Create"><i class="fa fa-plus me-2"></i>New User</a>
+    </div>
+</div>
+
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-hover table-sm mt-4">
+                <thead>
+                    <tr class="text-center">
+                        <th>Id</th>
+                        <th>Firstname</th>
+                        <th>Lastname</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Created Date</th>
+                        <th>Is Locked</th>
+                        <th>Role</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr class="text-center">
+                            <td>@item.Id</td>
+                            <td>@item.Firstname</td>
+                            <td>@item.Lastname</td>
+                            <td>@item.Username</td>
+                            <td>@item.EmailAddress</td>
+                            <td>@item.CreatedDate</td>
+                            <td>
+                                @if (item.Locked)
+                                {
+                                    <i class="fa fa-check text-success"></i>
+                                }
+                                else
+                                {
+                                    <i class="fa fa-times text-danger"></i>
+                                }
+                            </td>
+                            <td>@item.Role</td>
+                            <td>
+                                <div class="text-end">
+                                    <a class="btn btn-warning btn-sm text-white" asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-edit me-2"></i>Update</a>
+                                    <a class="btn btn-danger btn-sm" asp-action="Delete" onclick="return confirm('Are you sure want to delete this @item.Username')" asp-route-id="@item.Id"><i class="fa fa-trash me-2"></i>Delete</a>
+                                </div>
+                               
+
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>

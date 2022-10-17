@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "kidwU98goXzJkdFaIpPHiFgQxcWRuAfTWvWAW4gtk/8=",
+  "Hash": "A/XyGUeQH7gAD+a624vSHRYJmpmv2UF4z1aagBBNXGA=",
   "Source": "DefaultCrud_AjaxCrud_ImageUpload",
   "BasePath": "_content/DefaultCrud_AjaxCrud_ImageUpload",
   "Mode": "Default",
@@ -1154,6 +1154,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\toastr.js\\toastr.min.js"
+    },
+    {
+      "Identity": "C:\\Users\\USER\\Desktop\\Practices\\Asp.Net Core MVC\\DefaultCrud_AjaxCrud_ImageUpload\\DefaultCrud_AjaxCrud_ImageUpload\\wwwroot\\Uploads\\Noimage.jpg",
+      "SourceId": "DefaultCrud_AjaxCrud_ImageUpload",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\USER\\Desktop\\Practices\\Asp.Net Core MVC\\DefaultCrud_AjaxCrud_ImageUpload\\DefaultCrud_AjaxCrud_ImageUpload\\wwwroot\\",
+      "BasePath": "_content/DefaultCrud_AjaxCrud_ImageUpload",
+      "RelativePath": "Uploads/Noimage.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\Noimage.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\USER\\Desktop\\Practices\\Asp.Net Core MVC\\DefaultCrud_AjaxCrud_ImageUpload\\DefaultCrud_AjaxCrud_ImageUpload\\wwwroot\\Uploads\\p-42b2eac3-1c66-4c22-9f78-cdcbb33d3d60.jpg",
+      "SourceId": "DefaultCrud_AjaxCrud_ImageUpload",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\USER\\Desktop\\Practices\\Asp.Net Core MVC\\DefaultCrud_AjaxCrud_ImageUpload\\DefaultCrud_AjaxCrud_ImageUpload\\wwwroot\\",
+      "BasePath": "_content/DefaultCrud_AjaxCrud_ImageUpload",
+      "RelativePath": "Uploads/p-42b2eac3-1c66-4c22-9f78-cdcbb33d3d60.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\p-42b2eac3-1c66-4c22-9f78-cdcbb33d3d60.jpg"
     }
   ]
 }

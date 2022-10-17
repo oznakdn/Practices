@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "FwbVp1PnWiG3PeLvDANvUpa2YZ9r2refGLULRTcbEvWUbUIHMJgMBrAE52fkGRSo8kb3pDXAvzzDfekuwuaIFQ==",
+  "dgSpecHash": "hburKba7hhEMognsnBDwZBz/U9ozadhBQQTTetrwqRpvhTDoprPSVreljXVLROa51f5cT/lU9Rl7J9oloFqQnw==",
   "success": true,
   "projectFilePath": "C:\\Users\\USER\\Desktop\\Practices\\Asp.Net Core MVC\\DefaultCrud_AjaxCrud_ImageUpload\\DefaultCrud_AjaxCrud_ImageUpload\\DefaultCrud_AjaxCrud_ImageUpload.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\USER\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
+    "C:\\Users\\USER\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\castle.core\\4.4.1\\castle.core.4.4.1.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.extensions\\6.0.10\\microsoft.aspnetcore.mvc.razor.extensions.6.0.10.nupkg.sha512",
@@ -13,6 +15,7 @@
     "C:\\Users\\USER\\.nuget\\packages\\microsoft.codeanalysis.common\\4.0.0\\microsoft.codeanalysis.common.4.0.0.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\microsoft.codeanalysis.csharp\\4.0.0\\microsoft.codeanalysis.csharp.4.0.0.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\microsoft.codeanalysis.razor\\6.0.10\\microsoft.codeanalysis.razor.6.0.10.nupkg.sha512",
+    "C:\\Users\\USER\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\microsoft.data.sqlite.core\\6.0.10\\microsoft.data.sqlite.core.6.0.10.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.10\\microsoft.entityframeworkcore.6.0.10.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.10\\microsoft.entityframeworkcore.abstractions.6.0.10.nupkg.sha512",
