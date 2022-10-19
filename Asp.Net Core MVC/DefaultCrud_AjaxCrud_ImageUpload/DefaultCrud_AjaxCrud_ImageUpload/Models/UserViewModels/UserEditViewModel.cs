@@ -25,5 +25,7 @@ namespace DefaultCrud_AjaxCrud_ImageUpload.Models.UserViewModels
         [Required]
         [StringLength(50)]
         public string Role { get; set; }
+
+        public string? Done { get; set; }
     }
 }

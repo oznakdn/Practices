@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "A/XyGUeQH7gAD+a624vSHRYJmpmv2UF4z1aagBBNXGA=",
+  "Hash": "liLHCUn2gV+rnzFFm3D3enxwhICso4sqrrK0e27U3ps=",
   "Source": "DefaultCrud_AjaxCrud_ImageUpload",
   "BasePath": "_content/DefaultCrud_AjaxCrud_ImageUpload",
   "Mode": "Default",
@@ -950,6 +950,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\USER\\Desktop\\Practices\\Asp.Net Core MVC\\DefaultCrud_AjaxCrud_ImageUpload\\DefaultCrud_AjaxCrud_ImageUpload\\wwwroot\\lib\\jquery-ajax-unobtrusive\\jquery.unobtrusive-ajax.js",
+      "SourceId": "DefaultCrud_AjaxCrud_ImageUpload",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\USER\\Desktop\\Practices\\Asp.Net Core MVC\\DefaultCrud_AjaxCrud_ImageUpload\\DefaultCrud_AjaxCrud_ImageUpload\\wwwroot\\",
+      "BasePath": "_content/DefaultCrud_AjaxCrud_ImageUpload",
+      "RelativePath": "lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\jquery-ajax-unobtrusive\\jquery.unobtrusive-ajax.js"
+    },
+    {
+      "Identity": "C:\\Users\\USER\\Desktop\\Practices\\Asp.Net Core MVC\\DefaultCrud_AjaxCrud_ImageUpload\\DefaultCrud_AjaxCrud_ImageUpload\\wwwroot\\lib\\jquery-ajax-unobtrusive\\jquery.unobtrusive-ajax.min.js",
+      "SourceId": "DefaultCrud_AjaxCrud_ImageUpload",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\USER\\Desktop\\Practices\\Asp.Net Core MVC\\DefaultCrud_AjaxCrud_ImageUpload\\DefaultCrud_AjaxCrud_ImageUpload\\wwwroot\\",
+      "BasePath": "_content/DefaultCrud_AjaxCrud_ImageUpload",
+      "RelativePath": "lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\jquery-ajax-unobtrusive\\jquery.unobtrusive-ajax.min.js"
     },
     {
       "Identity": "C:\\Users\\USER\\Desktop\\Practices\\Asp.Net Core MVC\\DefaultCrud_AjaxCrud_ImageUpload\\DefaultCrud_AjaxCrud_ImageUpload\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",

@@ -37,5 +37,6 @@ namespace DefaultCrud_AjaxCrud_ImageUpload.Models.UserViewModels
         [DataType(DataType.Password)]
         [Compare(nameof(Password), ErrorMessage = "{0} must be the same with the password")]
         public string PasswordConfirm { get; set; }
+        public string? Done { get; set; }
     }
 }
