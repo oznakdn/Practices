@@ -1,0 +1,59 @@
+﻿@{
+    ViewData["Title"] = "Member";
+}
+
+<div class="row">
+    <div class="col">
+        <h1 class="display-4">@ViewData["Title"]</h1>
+        <hr />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <a class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalAdd"
+           data-ajax="true"
+           data-ajax-method="Get"
+           data-ajax-url="/Member/MemberUserCreatePartial"
+           data-ajax-update="#modalAddContent"><i class="fa fa-plus me-2"></i>Create User</a>
+
+        <!--Refresh button-->
+        <a id="refresh"
+           data-ajax="true"
+           data-ajax-method="Get"
+           data-ajax-url="/Member/MemberListPartial"
+           data-ajax-update="#panel" class="btn btn-secondary btn-sm"><i class="fa fa-sync-alt me-2"></i>Reload</a>
+    </div>
+</div>
+
+<div class="row mb-2">
+    <div class="col">
+        <div id="panel">
+
+        </div>
+    </div>
+</div>
+
+<!-- Modal Create -->
+<div class="modal fade" id="modalAdd" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog" id="modalAddContent">
+
+    </div>
+</div>
+
+<!-- Modal Edit -->
+<div class="modal fade" id="modalEdit" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog" id="modalEditContent">
+
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.min.js"></script>
+    <script>
+        $(function () {
+            refresh.click();
+        });
+    </script>
+
+}

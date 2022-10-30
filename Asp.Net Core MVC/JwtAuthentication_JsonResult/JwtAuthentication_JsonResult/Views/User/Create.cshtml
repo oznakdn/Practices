@@ -1,0 +1,66 @@
+﻿@model JwtAuthentication_JsonResult.Models.UserViewModels.UserCreateViewModel
+
+@{
+    ViewData["Title"] = "User Creat";
+}
+
+<div class="row">
+    <div class="col-4 offset-4">
+        <h1 class="display-4 text-center border-bottom pb-3">@ViewData["Title"]</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-4 offset-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger small"></div>
+            <div class="form-group">
+                <label class="form-label" asp-for="Firstname">First Name</label>
+                <input type="text" class="form-control" value="" placeholder="john" asp-for="Firstname" />
+            </div>
+            <div class="form-group mb-2">
+                <label class="form-label" asp-for="Lastname">Last Name</label>
+                <input type="text" class="form-control" value="" placeholder="Doe" asp-for="Lastname" />
+            </div>
+            <div class="form-group mb-2">
+                <label class="form-label" asp-for="Username">Username</label>
+                <input type="text" class="form-control" value="" placeholder="johndoe" asp-for="Username" />
+                <span asp-validation-for="Username" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-2">
+                <label class="form-label" asp-for="EmailAddress">Email</label>
+                <input type="email" class="form-control" value="" placeholder="johndoe@mail.com" asp-for="EmailAddress" />
+                <span asp-validation-for="EmailAddress" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-2">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" asp-for="Locked">
+                    <label class="form-check-label" asp-for="Locked">Is Locked?</label>
+                </div>
+            </div>
+            <div class="form-group mb-2">
+                <label class="form-label" asp-for="Role">Role</label>
+                <select asp-for="Role" class="form-select">
+                    <option value="">Please Select...</option>
+                    <option value="Admin">Admin</option>
+                    <option value="User">User</option>
+                </select>
+                <span asp-validation-for="Role" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-2">
+                <label class="form-label" asp-for="Password"></label>
+                <input type="password" class="form-control" value="" placeholder="P@ssW0rd!" asp-for="Password" />
+                <span asp-validation-for="Password" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-2">
+                <label class="form-label" asp-for="PasswordConfirm"></label>
+                <input type="password" class="form-control" placeholder="P@ssW0rd!" asp-for="PasswordConfirm" />
+                <span asp-validation-for="PasswordConfirm" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+                <button class="btn btn-primary d-block" type="submit"><i class="fa-solid fa-save me-2"></i>Save</button>
+            </div>
+        </form>
+
+    </div>
+</div>

@@ -1,0 +1,78 @@
+﻿@model JwtAuthentication_JsonResult.Models.UserViewModels.UserEditViewModel
+
+@{
+    ViewData["Title"] = "Edit User";
+}
+
+<div class="row">
+    <div class="col-4 offset-4">
+        <h1 class="display-4 text-center border-bottom pb-3">@ViewData["Title"]</h1>
+    </div>
+</div>
+
+<div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title fs-5">Edit User</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form method="post" asp-action="EditUser" id="frmEditUser"
+              data-ajax="true"
+              data-ajax-method="post"
+              data-ajax-content="#modalEditContent">
+            <div asp-validation-summary="ModelOnly" class="text-danger small"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label class="form-label" asp-for="Firstname">First Name</label>
+                <input type="text" class="form-control" placeholder="john" asp-for="Firstname" />
+            </div>
+            <div class="form-group mb-2">
+                <label class="form-label" asp-for="Lastname">Last Name</label>
+                <input type="text" class="form-control" placeholder="Doe" asp-for="Lastname" />
+            </div>
+            <div class="form-group mb-2">
+                <label class="form-label" asp-for="Username">Username</label>
+                <input type="text" class="form-control" placeholder="johndoe" asp-for="Username" />
+                <span asp-validation-for="Username" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-2">
+                <label class="form-label" asp-for="EmailAddress">Email</label>
+                <input type="email" class="form-control" placeholder="johndoe@mail.com" asp-for="EmailAddress" />
+                <span asp-validation-for="EmailAddress" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-2">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" asp-for="Locked">
+                    <label class="form-check-label" asp-for="Locked">Is Locked?</label>
+                </div>
+            </div>
+            <div class="form-group mb-2">
+                <label class="form-label" asp-for="Role">Role</label>
+                <select asp-for="Role" class="form-select">
+                    <option value="">Please Select...</option>
+                    <option value="Admin">Admin</option>
+                    <option value="User">User</option>
+                </select>
+                <span asp-validation-for="Role" class="text-danger small"></span>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary btn-sm" form="frmEditUser">Save</button>
+    </div>
+</div>
+@if (string.IsNullOrEmpty(Model.Done) == false)
+{
+    <script>
+        $("#modalEdit").modal("hide");
+       toastr.success('@Model.Done', "Success");
+       refresh.click();
+    </script>
+}
+
+
+
+

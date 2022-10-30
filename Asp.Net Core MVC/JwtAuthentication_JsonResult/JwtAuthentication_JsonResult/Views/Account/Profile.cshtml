@@ -1,0 +1,114 @@
+﻿
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<style>
+    .cursor-pointer {
+        cursor: pointer;
+    }
+</style>
+
+<div class="row">
+    <div class="col-4 offset-4">
+        <h1 class="display-4 border-bottom text-center pb-2">@ViewData["Title"]</h1>
+    </div>
+</div>
+
+
+<div class="row mt-4">
+    <h3 class="text-center">Edit Informations</h3>
+    <div class="col-12 offset-6">
+        <div asp-validation-summary="All" class="text-danger small"></div>
+    </div>
+
+    <div class="col-6">
+        <form method="post" asp-action="ProfileChangeImage" enctype="multipart/form-data">
+            <div class="text-center mb-3">
+                <img src="~/Uploads/@ViewData["profileImage"]" class="img-thumbnail figure-img rounded-circle" width="300" alt="Alternate Text" />
+            </div>
+
+
+            <div class="form-group mb-3 text-center">
+                <input type="file" name="imageFile" class="form-control w-75 mx-auto" accept=".jpg,.jpeg" />
+                <button class="btn btn-success small mt-4 w-75"><i class="fa-solid fa-floppy-disk me-2"></i>Save</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-6">
+        <div class="mb-4">
+        </div>
+
+        <!--Name - Surname -->
+        <form method="post" asp-action="ProfileChangeNameSurname" class="w-50">
+            <div class="form-group">
+                <label class="form-label small">Name - Surname</label>
+                <div class="input-group mb-3">
+                    <input name="firstname" type="text" class="form-control" placeholder="John" value="@ViewData["Firstname"]">
+                    <input name="lastname" type="text" class="form-control" placeholder="Doe" value="@ViewData["Lastname"]">
+                    <button class="btn btn-success" type="submit"><i class="fa-solid fa-floppy-disk me-2"></i>Save</button>
+                </div>
+            </div>
+        </form>
+
+        <!-- Password change -->
+        <form method="post" asp-action="ProfileChangePassword" class="w-50">
+            <div class="form-group">
+                <label class="form-label small">New Password</label>
+                <div class="input-group mb-3">
+                    <input name="password" type="pas" class="form-control" placeholder="P@ssW0rd!">
+                    <button class="btn btn-success" type="submit"><i class="fa-solid fa-floppy-disk me-2"></i>Save</button>
+                </div>
+                @if (ViewData["result"] != null && ViewData["result"] == "PasswordChanged")
+                {
+
+                    <span class="text-success small">Password is changed successfully.</span>
+
+                }
+            </div>
+        </form>
+
+        <!-- Email change -->
+        <form method="post" asp-action="ProfileChangeEmailAddress" class="w-50">
+            <div class="form-group">
+                <label class="form-label small">New Email</label>
+                <div class="input-group mb-3">
+                    <input name="emailAddress" value="@ViewData["emailAddress"]" type="email" class="form-control" placeholder="johndoe@mail.com">
+                    <button class="btn btn-success" type="submit"><i class="fa-solid fa-floppy-disk me-2"></i>Save</button>
+                </div>
+            </div>
+        </form>
+
+        <!-- Cookie -->
+        <div class="form-group mt-3">
+            <label class="form-label">Token<span class="badge bg-danger ms-2">Required</span></label>
+            <div>
+                <textarea id="token" class="form-control" rows="5" readonly>@ViewContext.HttpContext.Request.Cookies[".WebApplication2.auth"]</textarea>
+                <p><span class="badge bg-info cursor-pointer" onclick="copyTo()">Copy To</span></p>
+                <p class="small text-primary alert alert-info">Using Token : Headers &gt; Cookie &gt; .WebApplication2.auth=[Token]</p>
+
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+@section Scripts{
+    @if (ViewData["result"] != null && ViewData["result"] == "PasswordChanged")
+    {
+        <script>
+            toastr["success"]("Success", "Your password is changed.");
+        </script>
+    }
+
+
+    <script>
+        function copyTo() {
+            var txtArea = document.getElementById("token");
+            txtArea.select();
+            navigator.clipboard.writeText(txtArea.value);
+            txtArea.setSelectionRange(0,0);
+        }
+    </script>
+}
