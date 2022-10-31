@@ -1,0 +1,64 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = MongoDB_Crud
+build_property.RootNamespace = MongoDB_Crud
+build_property.ProjectDir = C:\Users\USER\Desktop\Practices\Asp.Net Core MVC\MongoDB_Crud\MongoDB_Crud\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\USER\Desktop\Practices\Asp.Net Core MVC\MongoDB_Crud\MongoDB_Crud
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/USER/Desktop/Practices/Asp.Net Core MVC/MongoDB_Crud/MongoDB_Crud/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/Desktop/Practices/Asp.Net Core MVC/MongoDB_Crud/MongoDB_Crud/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/Desktop/Practices/Asp.Net Core MVC/MongoDB_Crud/MongoDB_Crud/Views/MobileDevice/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9iaWxlRGV2aWNlXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/Desktop/Practices/Asp.Net Core MVC/MongoDB_Crud/MongoDB_Crud/Views/MobileDevice/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9iaWxlRGV2aWNlXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/Desktop/Practices/Asp.Net Core MVC/MongoDB_Crud/MongoDB_Crud/Views/MobileDevice/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9iaWxlRGV2aWNlXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/Desktop/Practices/Asp.Net Core MVC/MongoDB_Crud/MongoDB_Crud/Views/MobileDevice/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9iaWxlRGV2aWNlXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/Desktop/Practices/Asp.Net Core MVC/MongoDB_Crud/MongoDB_Crud/Views/MobileDevice/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9iaWxlRGV2aWNlXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/Desktop/Practices/Asp.Net Core MVC/MongoDB_Crud/MongoDB_Crud/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/Desktop/Practices/Asp.Net Core MVC/MongoDB_Crud/MongoDB_Crud/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/Desktop/Practices/Asp.Net Core MVC/MongoDB_Crud/MongoDB_Crud/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/Desktop/Practices/Asp.Net Core MVC/MongoDB_Crud/MongoDB_Crud/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/Desktop/Practices/Asp.Net Core MVC/MongoDB_Crud/MongoDB_Crud/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-12fn8cgmz8
