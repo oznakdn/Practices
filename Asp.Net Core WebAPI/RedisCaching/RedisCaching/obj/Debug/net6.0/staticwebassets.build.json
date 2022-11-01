@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "qXBhjedkfJqfHfHA8Q2pNt8SzE6v4ZMhj79kOMDIyUM=",
+  "Source": "RedisCaching",
+  "BasePath": "_content/RedisCaching",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
