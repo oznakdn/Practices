@@ -56,13 +56,15 @@ public class PlatformsController : ControllerBase
     /// </summary>
     /// <param name="createDto"></param>
     /// <returns></returns>
-    [HttpPost]
-    public IActionResult PostPlatform([FromBody] PlatformCreateDto createDto)
+    [HttpPost("Create")]
+    public IActionResult CreatePlatform([FromBody] PlatformCreateDto createDto)
     {
         Platform platform = _mapper.Map<Platform>(createDto);
         _platformRepo.CreatePlatform(platform);
         _platformRepo.SaveChanges();
-        return Created(nameof(createDto), platform);
+
+        var platformReadDto = _mapper.Map<PlatformReadDto>(platform);
+        return CreatedAtRoute("GetPlatformById", new { id = platformReadDto.Id }, platformReadDto);
 
     }
 }
