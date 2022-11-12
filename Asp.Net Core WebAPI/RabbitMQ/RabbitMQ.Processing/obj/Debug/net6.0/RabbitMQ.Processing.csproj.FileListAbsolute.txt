@@ -1,0 +1,15 @@
+C:\Users\USER\Desktop\Practices\Asp.Net Core WebAPI\RabbitMQ\RabbitMQ.Processing\bin\Debug\net6.0\RabbitMQ.Processing.exe
+C:\Users\USER\Desktop\Practices\Asp.Net Core WebAPI\RabbitMQ\RabbitMQ.Processing\bin\Debug\net6.0\RabbitMQ.Processing.deps.json
+C:\Users\USER\Desktop\Practices\Asp.Net Core WebAPI\RabbitMQ\RabbitMQ.Processing\bin\Debug\net6.0\RabbitMQ.Processing.runtimeconfig.json
+C:\Users\USER\Desktop\Practices\Asp.Net Core WebAPI\RabbitMQ\RabbitMQ.Processing\bin\Debug\net6.0\RabbitMQ.Processing.dll
+C:\Users\USER\Desktop\Practices\Asp.Net Core WebAPI\RabbitMQ\RabbitMQ.Processing\bin\Debug\net6.0\RabbitMQ.Processing.pdb
+C:\Users\USER\Desktop\Practices\Asp.Net Core WebAPI\RabbitMQ\RabbitMQ.Processing\obj\Debug\net6.0\RabbitMQ.Processing.csproj.AssemblyReference.cache
+C:\Users\USER\Desktop\Practices\Asp.Net Core WebAPI\RabbitMQ\RabbitMQ.Processing\obj\Debug\net6.0\RabbitMQ.Processing.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER\Desktop\Practices\Asp.Net Core WebAPI\RabbitMQ\RabbitMQ.Processing\obj\Debug\net6.0\RabbitMQ.Processing.AssemblyInfoInputs.cache
+C:\Users\USER\Desktop\Practices\Asp.Net Core WebAPI\RabbitMQ\RabbitMQ.Processing\obj\Debug\net6.0\RabbitMQ.Processing.AssemblyInfo.cs
+C:\Users\USER\Desktop\Practices\Asp.Net Core WebAPI\RabbitMQ\RabbitMQ.Processing\obj\Debug\net6.0\RabbitMQ.Processing.csproj.CoreCompileInputs.cache
+C:\Users\USER\Desktop\Practices\Asp.Net Core WebAPI\RabbitMQ\RabbitMQ.Processing\obj\Debug\net6.0\RabbitMQ.Processing.dll
+C:\Users\USER\Desktop\Practices\Asp.Net Core WebAPI\RabbitMQ\RabbitMQ.Processing\obj\Debug\net6.0\refint\RabbitMQ.Processing.dll
+C:\Users\USER\Desktop\Practices\Asp.Net Core WebAPI\RabbitMQ\RabbitMQ.Processing\obj\Debug\net6.0\RabbitMQ.Processing.pdb
+C:\Users\USER\Desktop\Practices\Asp.Net Core WebAPI\RabbitMQ\RabbitMQ.Processing\obj\Debug\net6.0\RabbitMQ.Processing.genruntimeconfig.cache
+C:\Users\USER\Desktop\Practices\Asp.Net Core WebAPI\RabbitMQ\RabbitMQ.Processing\obj\Debug\net6.0\ref\RabbitMQ.Processing.dll
