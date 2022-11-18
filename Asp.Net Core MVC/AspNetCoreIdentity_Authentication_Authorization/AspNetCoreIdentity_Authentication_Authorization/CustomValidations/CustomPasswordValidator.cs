@@ -5,7 +5,7 @@ namespace AspNetCoreIdentity_Authentication_Authorization.CustomValidations
 {
     public class CustomPasswordValidator : IPasswordValidator<AppUser>
     {
-        public async Task<IdentityResult> ValidateAsync(UserManager<AppUser> manager, AppUser user, string password)
+        public Task<IdentityResult> ValidateAsync(UserManager<AppUser> manager, AppUser user, string password)
         {
             List<IdentityError> errors = new();
 
@@ -32,11 +32,11 @@ namespace AspNetCoreIdentity_Authentication_Authorization.CustomValidations
 
             if (errors.Count == 0)
             {
-                return await Task.FromResult(IdentityResult.Success);
+                return Task.FromResult(IdentityResult.Success);
             }
             else
             {
-                return await Task.FromResult(IdentityResult.Failed(errors.ToArray()));
+                return Task.FromResult(IdentityResult.Failed(errors.ToArray()));
             }
 
 

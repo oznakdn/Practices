@@ -28,6 +28,7 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
 
 })
 .AddPasswordValidator<CustomPasswordValidator>()
+.AddUserValidator<CustomUserValidator>()
 .AddEntityFrameworkStores<AppDbContext>();
 
 
