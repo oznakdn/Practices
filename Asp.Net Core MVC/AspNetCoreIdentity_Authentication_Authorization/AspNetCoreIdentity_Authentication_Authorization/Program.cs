@@ -1,8 +1,10 @@
 using AspNetCoreIdentity_Authentication_Authorization.CustomValidations;
 using AspNetCoreIdentity_Authentication_Authorization.Data;
 using AspNetCoreIdentity_Authentication_Authorization.Entities;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using Microsoft.Net.Http.Headers;
 using SameSiteMode = Microsoft.AspNetCore.Http.SameSiteMode;
 
@@ -34,27 +36,43 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
 .AddErrorDescriber<CustomIdentityErrorDescriber>()
 .AddEntityFrameworkStores<AppDbContext>();
 
-// Cookie conf.
-CookieBuilder cookieBuilder = new()
-{
-    Name = "MyProject", // Browser'da cookie'nin gosterildigi deger
-    HttpOnly = false, // Sadece Http isteklerinde gosterilsin
-    Expiration = TimeSpan.FromDays(60), // Clien 60 gun boyunca username ve password girmeden siteye girebilir
-    SameSite = SameSiteMode.Lax, // Cookie kaytdedildikten sonra herhangi bir site uzerinden cookie degerine ulasilabilir.
-    //SameSite = SameSiteMode.Strict ====>  Cookie kaytdedildikten sonra sadece ilgili site uzerinden cookie degerine ulasilabilir. (Siteler arasi istek hirsizligini engeller.)
-    SecurePolicy = CookieSecurePolicy.SameAsRequest  //Browser sitenin Http yada Https istek sekline gore kullanici cookie'sini gonderir
-    //SecurePolicy = CookieSecurePolicy.Always  ====> Browser sadece Https uzerinden istek gelirse kullanici cookie'sini gonderir
-    //SecurePolicy = CookieSecurePolicy.None // Browser  Http yada Https uzerinden istek gelirse kullanici cookie'sini gonderir
-};
 
-builder.Services.ConfigureApplicationCookie(opt =>
-{
-    opt.Cookie = cookieBuilder;
-    opt.LoginPath = new PathString("/Home/Login");
-    opt.LogoutPath = new PathString("/Home/Logout");
-    opt.AccessDeniedPath = new PathString("/Home/AccessDenied");
-    opt.SlidingExpiration = true; // Cookie suresini Expiration kadar daha uzatir.
-});
+// Cookie conf.
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.Cookie.Name = "MyProject";
+        options.Cookie.Expiration = TimeSpan.FromDays(60);
+        options.Cookie.HttpOnly = false;
+        options.Cookie.SameSite = SameSiteMode.Lax;
+        options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
+        options.LogoutPath = new PathString("/Home/Login");
+        options.ExpireTimeSpan = TimeSpan.FromDays(60);
+        options.SlidingExpiration = true;
+    });
+
+//CookieBuilder cookieBuilder = new()
+//{
+//    Name = "MyProject", // Browser'da cookie'nin gosterildigi deger
+//    HttpOnly = false, // Sadece Http isteklerinde gosterilsin
+//    Expiration = TimeSpan.FromDays(60), // Clien 60 gun boyunca username ve password girmeden siteye girebilir
+//    SameSite = SameSiteMode.Lax, // Cookie kaytdedildikten sonra herhangi bir site uzerinden cookie degerine ulasilabilir.
+//    //SameSite = SameSiteMode.Strict ====>  Cookie kaytdedildikten sonra sadece ilgili site uzerinden cookie degerine ulasilabilir. (Siteler arasi istek hirsizligini engeller.)
+//    SecurePolicy = CookieSecurePolicy.SameAsRequest,  //Browser sitenin Http yada Https istek sekline gore kullanici cookie'sini gonderir
+//    //SecurePolicy = CookieSecurePolicy.Always  ====> Browser sadece Https uzerinden istek gelirse kullanici cookie'sini gonderir
+//    //SecurePolicy = CookieSecurePolicy.None // Browser  Http yada Https uzerinden istek gelirse kullanici cookie'sini gonderir
+
+//};
+
+//builder.Services.ConfigureApplicationCookie(opt =>
+//{
+//    opt.Cookie = cookieBuilder;
+//    opt.LoginPath = new PathString("/Home/Login");
+//    //opt.LogoutPath = new PathString("/Home/Logout");
+//    //opt.AccessDeniedPath = new PathString("/Home/AccessDenied");
+//    opt.SlidingExpiration = true; // Cookie suresini Expiration kadar daha uzatir.
+//});
 
 
 
@@ -69,6 +87,7 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
