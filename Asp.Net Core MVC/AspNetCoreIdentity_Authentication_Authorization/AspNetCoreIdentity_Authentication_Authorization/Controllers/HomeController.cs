@@ -1,4 +1,5 @@
 ﻿using AspNetCoreIdentity_Authentication_Authorization.Entities;
+using AspNetCoreIdentity_Authentication_Authorization.Helpers;
 using AspNetCoreIdentity_Authentication_Authorization.Models.ViewModels.UserViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -23,6 +24,8 @@ namespace AspNetCoreIdentity_Authentication_Authorization.Controllers
             return View();
         }
 
+
+        #region SignUp
         public IActionResult SignUp()
         {
             return View();
@@ -55,7 +58,9 @@ namespace AspNetCoreIdentity_Authentication_Authorization.Controllers
             }
             return View(model);
         }
+        #endregion
 
+        #region Login
         public IActionResult Login(string ReturnUrl)
         {
             TempData["ReturnUrl"] = ReturnUrl;
@@ -125,6 +130,89 @@ namespace AspNetCoreIdentity_Authentication_Authorization.Controllers
 
             return View(loginView);
         }
+        #endregion
+
+        #region ForgetPassword
+
+        public IActionResult ResetPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ResetPassword(PasswordResetViewModel passwordReset)
+        {
+            AppUser user = await _userManager.FindByEmailAsync(passwordReset.Email);
+
+            if(user is not null)
+            {
+                string passwordResetToken =await _userManager.GeneratePasswordResetTokenAsync(user);
+                string passwordResetLink = Url.Action("ResetPasswordConfirm","Home",new
+                {
+                    userId = user.Id,
+                    token = passwordResetToken,
+                },HttpContext.Request.Scheme); 
+
+                PasswordResetHelper.PasswordResetSendEmail(passwordResetLink, passwordReset.Email);
+
+                ViewBag.status = "Successfully";
+
+            }
+            else
+            {
+                ModelState.AddModelError("", "Email address is no exists!");
+            }
+
+
+            return View(passwordReset);
+        }
+
+
+        public IActionResult ResetPasswordConfirm(string userId, string token)
+        {
+            TempData["userId"] = userId;
+            TempData["token"] = token;
+
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ResetPasswordConfirm(PasswordResetConfirmViewModel passwordReset)
+        {
+            string token = TempData["token"].ToString();
+            string userId = TempData["userId"].ToString();
+
+            AppUser user = await _userManager.FindByIdAsync(userId);
+
+            if(user is not null) 
+            {
+                IdentityResult result = await _userManager.ResetPasswordAsync(user, token, passwordReset.Password);
+                
+                if(result.Succeeded) 
+                {
+                    await _userManager.UpdateSecurityStampAsync(user);
+                    TempData["passwordResetInfo"] = "Your password was refreshed successful, you can login with your new password.";
+                }
+                else
+                {
+                    foreach (var item in result.Errors)
+                    {
+                        ModelState.AddModelError("",item.Description);
+                    }
+                }
+            }
+            else
+            {
+                ModelState.AddModelError("", "User not found");
+            }
+
+            return View();
+        }
+
+
+
+
+        #endregion
 
 
     }

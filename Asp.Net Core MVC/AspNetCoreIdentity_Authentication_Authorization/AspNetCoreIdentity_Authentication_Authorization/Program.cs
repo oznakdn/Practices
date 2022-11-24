@@ -34,7 +34,8 @@ builder.Services.AddIdentity<AppUser, AppRole>(options =>
 .AddPasswordValidator<CustomPasswordValidator>()
 .AddUserValidator<CustomUserValidator>()
 .AddErrorDescriber<CustomIdentityErrorDescriber>()
-.AddEntityFrameworkStores<AppDbContext>();
+.AddEntityFrameworkStores<AppDbContext>()
+.AddDefaultTokenProviders();
 
 
 // Cookie conf.
